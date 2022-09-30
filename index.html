@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <nav>
+        <ol>
+          <li @click="asides">Crear</li>
+          <li @click="eliminacion">Eliminar</li>
+        </ol>
+      </nav>
+      <aside
+        class="crear"
+        :class="{
+            'active': aside          
+          }"
+      >
+        <form @submit.prevent="crearTarea">
+          <p
+          class="close"
+          @click="asides"
+        >
+          &times;
+        </p>
+          <label>Nombre de su tarea</label>
+          <br />
+          <input
+            type="text"
+            required
+            placeholder="Ingresa un nombre"
+            v-model="nombre"
+            class="nombre"
+          />
+          <br />
+          <label>Descripcion de su tarea</label>
+          <br />
+          <textarea v-model="descripcion"></textarea>
+          <br />
+          <label>Nivel de necesidad</label>
+          <br />
+          <select v-model="necesidad">
+            <option value="Sin apuro">Sin apuro</option>
+            <option value="Tranqui">Tranqui</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Urgente">Urgente</option>
+          </select>
+          <br />
+          <label>Color de la tarjeta</label>
+          <br />
+          <select v-model="color">
+            <option value="Rojo">Rojo</option>
+            <option value="Verde">Verde</option>
+            <option value="Amarillo">Amarillo</option>
+            <option value="Celeste">Celeste</option>
+            <option value="Violeta">Violeta</option>
+          </select>
+          <br />
+          <input class="boton" type="submit" value="Enviar tarea" />
+        </form>
+      </aside>
+      <div>
+        <div class="grid">
+          <h1 v-if="tareas.length === 0">Agrega alguna tarea</h1>
+          <div
+            v-for="(tarea, index) in tareas"
+            @dblclick="edit(tarea.nombre, tarea.necesidad, tarea.descripcion, tarea.color, index)"
+            :class="tarea.color"
+            class="tarjeta"
+            @doubletap="edit(tarea.nombre, tarea.necesidad, tarea.descripcion, tarea.color, index)"
+          >
+            <input
+              type="checkbox"
+              class="check"
+              :class="{
+              'active': eliminar          
+            }"
+              v-model="tarea.estado"
+            />
+            <h3 class="titulo">{{tarea.nombre}}</h3>
+            <p class="necesidad">{{tarea.necesidad}}</p>
+            <p class="descripcion">{{tarea.descripcion}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex">
+       <button
+        class="botonRojo"
+        @click="reiniciar"
+        :class="{
+        'active': eliminar          
+      }"
+      >
+        Eliminar tarjetas seleccionadas
+      </button> 
+      </div>
+      
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

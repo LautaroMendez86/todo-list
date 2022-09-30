@@ -1,0 +1,253 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #c6ffdd;
+  background: -webkit-linear-gradient(to right, #f7797d, #fbd786, #c6ffdd);
+  background: linear-gradient(to right, #f7797d, #fbd786, #c6ffdd);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+aside {
+  display: none;
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  width: 30vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: rgba(34, 34, 34, 0.438);
+  z-index: 10;
+}
+
+.check {
+  display: none;
+}
+
+.botonRojo {
+  bottom: 40px;
+  width: 400px;
+  height: 50px;
+  display: none;
+  background-color: rgb(192, 56, 56);
+  border: none;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.flex{
+  width: 100vw;
+  position: fixed;
+  bottom: 40px;
+  display: flex;
+  justify-content: center;
+}
+
+.botonRojo:hover {
+  background-color: rgb(121, 35, 35);
+}
+
+.active {
+  display: block;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: #c6ffdd;
+  font-size: 23px;
+}
+
+form .nombre {
+  width: 250px;
+  height: 40px;
+  text-align: center;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+}
+
+form textarea {
+  width: 300px;
+  height: 150px;
+  font-size: 15px;
+  padding: 5px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+form select {
+  width: 150px;
+  height: 30px;
+  border-radius: 8px;
+  border: none;
+  text-align: center;
+}
+form .boton {
+  width: 130px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: #60d860;
+}
+
+.boton:hover {
+  background-color: #398139;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 320px);
+  grid-gap: 10px;
+  justify-content: center;
+  align-items: flex-start;
+  grid-auto-flow: row;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.tarjeta {
+  max-height: 320px;
+  min-height: 320px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 1px rgba(34, 34, 34, 0.452);
+  color: rgb(255, 255, 255);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(44, 44, 48, 0.425);
+}
+
+.tarjeta:hover {
+
+  transition: all 300ms linear;
+  cursor: pointer;
+  transform: translateY(-3%);
+}
+
+textarea {
+  resize: none;
+}
+.Amarillo {
+  background: #fdfd96;
+  color: rgb(44, 44, 44);
+}
+
+h1 {
+  color: rgb(233, 233, 233);
+}
+
+.Rojo {
+  background: #ff6961;
+}
+
+.Verde {
+  background: #77dd77;
+}
+
+.Celeste {
+  background: #84b6f4;
+}
+
+.Violeta {
+  background: #fdcae1;
+}
+
+.close{
+cursor: pointer;
+ position: fixed;
+ top: 0;
+ right: 0;
+ transform: translateX(-50%);
+  font-size: 50px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  margin: 30px;
+  color: rgb(255, 255, 255);
+}
+
+ol {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+ol > li {
+  display: block;
+  margin: 0 20px 0 20px;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+li:hover {
+  color: gray;
+}
+
+
+/* Works on Firefox */
+* {
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 4px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(255, 166, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(44, 44, 48, 0.425);
+  border-radius: 20px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: rgba(44, 44, 48, 0.705);
+  border-radius: 20px;
+}
+
+@media screen and (max-width: 1100px) {
+  aside{
+    width: 100vw;
+  }
+  form{
+    height: 100vh;
+    font-size: 13px;
+  }
+  form textarea{
+    height: 100px;
+  }
+  .botonRojo{
+    padding: 12px 20px;
+		bottom: 20px;
+		right: 20px;
+    width: 350px;
+  }
+  .tarjeta:hover {
+
+    transition: all 200ms linear;
+    cursor: pointer;
+    transform: translateY(-0%);
+  }
+}
