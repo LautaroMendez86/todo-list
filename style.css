@@ -41,6 +41,19 @@ aside {
   border-radius: 8px;
 }
 
+.botonFiltrar{
+  border: none;
+  height: 50px;
+  margin-left: 10px;
+  width: 100px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 13px;
+  backdrop-filter: blur(110px);
+  background: rgba(0, 0, 0, 0.199);
+  -webkit-backdrop-filter: blur(110px);
+}
+
 .flex{
   width: 100vw;
   position: fixed;
@@ -141,8 +154,9 @@ textarea {
   color: rgb(44, 44, 44);
 }
 
-h1 {
+h1, h2 {
   color: rgb(233, 233, 233);
+  text-align: center;
 }
 
 .Rojo {
@@ -242,7 +256,11 @@ body::-webkit-scrollbar-thumb {
     padding: 12px 20px;
 		bottom: 20px;
 		right: 20px;
-    width: 350px;
+    width: 200px;
+    font-size: 13px;
+  }
+  .botonFiltrar{
+    width: 100px;
   }
   .tarjeta:hover {
 
