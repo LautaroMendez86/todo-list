@@ -15,11 +15,12 @@ const vm = new Vue({
     eliminar: false,
     color: "Rojo",
     index: null,
+    select: "Todos",
   },
 
   methods: {
     crearTarea() {
-      if ((this.index === null)) {
+      if (this.index === null) {
         this.tareas.push({
           nombre: this.nombre,
           descripcion: this.descripcion,
@@ -32,7 +33,7 @@ const vm = new Vue({
         this.tareas[this.index].descripcion = this.descripcion;
         this.tareas[this.index].color = this.color;
         this.tareas[this.index].necesidad = this.necesidad;
-        this.index = null
+        this.index = null;
       }
 
       this.nombre = "";
@@ -42,12 +43,11 @@ const vm = new Vue({
       this.color = "Rojo";
     },
     asides() {
-      
       this.nombre = "";
       this.descripcion = "";
       this.necesidad = "Sin apuro";
       this.color = "Rojo";
-      this.index = null
+      this.index = null;
 
       this.aside = !this.aside;
       this.eliminar = false;
@@ -59,15 +59,25 @@ const vm = new Vue({
     reiniciar() {
       location.reload();
     },
-    edit(a, b, c, d, i) {
+    edit(nombre, necesidad, descripcion, color, i) {
       this.aside = true;
-      this.nombre = a;
-      this.necesidad = b;
-      this.descripcion = c;
-      this.color = d;
+      this.nombre = nombre;
+      this.necesidad = necesidad;
+      this.descripcion = descripcion;
+      this.color = color;
       this.index = i;
     },
-    
+  },
+  computed: {
+    filtrarColor() {
+      if (this.select === "Todos") {
+        return this.tareas;
+      }
+
+      return this.tareas.filter((tarea) => {
+        return tarea.color.includes(this.select);
+      });
+    },
   },
 });
 

@@ -67,13 +67,15 @@
       <div>
         <div class="grid">
           <h1 v-if="tareas.length === 0">Agrega alguna tarea</h1>
+          <h2 v-else-if="filtrarColor.length === 0">No hay ninguna tarea del color que quieres filtrar</h2>
           <div
-            v-for="(tarea, index) in tareas"
+            v-for="(tarea, index) in filtrarColor"
             @dblclick="edit(tarea.nombre, tarea.necesidad, tarea.descripcion, tarea.color, index)"
             :class="tarea.color"
             class="tarjeta"
             @doubletap="edit(tarea.nombre, tarea.necesidad, tarea.descripcion, tarea.color, index)"
           >
+          
             <input
               type="checkbox"
               class="check"
@@ -98,6 +100,14 @@
       >
         Eliminar tarjetas seleccionadas
       </button> 
+      <select class="botonFiltrar" v-model="select">
+        <option value="Todos">Todos</option>
+        <option value="Rojo">Rojo</option>
+        <option value="Verde">Verde</option>
+        <option value="Amarillo">Amarillo</option>
+        <option value="Celeste">Celeste</option>
+        <option value="Violeta">Violeta</option>
+      </select>
       </div>
       
     </div>
